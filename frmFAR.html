@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SAPS - FAR Online</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+	</head>
+	<body>
+		
+		<div class="container">
+			<form class="needs-validation" action="/fat" method="post" c>
+				<div class="row">
+					<div class="col">
+						<fieldset>
+							<!-- Form Name -->
+							<legend>Formulário de Avaliação de Risco</legend>
+							<hr />
+							
+							<!-- Tabs Navigator -->
+							<ul class="nav nav-tabs nav-fill" role="tablist">
+									<li class="nav-item">
+											<a class="nav-link active" data-bs-toggle="tab" data-bs-target="#dados_edf">Identificação</a>
+									</li>
+									<li class="nav-item">
+											<a class="nav-link" data-bs-toggle="tab" data-bs-target="#medidas">Medidas de Segurança</a>
+									</li>
+									<li class="nav-item">
+											<a class="nav-link" data-bs-toggle="tab" data-bs-target="#descricao_ativ">Descrição de Atividades</a>
+									</li>
+							</ul>
+
+							<!-- Tabs Content -->
+							<div class="tab-content border-start border-bottom border-end">
+								<!-- Identificação da edificação -->
+								<div class="tab-pane active" id="dados_edf" role="tabpanel">
+									<div class="pb-3 pt-3 container">
+										<!-- Nome Fantasia -->
+										<div class="row">
+											<div class="col-sm-12">
+												<label class="form-label" for="nome_fantasia">Nome Fantasia</label>
+												<input id="nome_fantasia" name="nome_fantasia" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span--> 
+											</div> 
+										</div>
+										
+										<!-- Razão Social, CNPJ -->
+										<div class="row">
+											<div class="col-sm-10">
+												<label class="form-label" for="razao_social">Razão Social</label>  
+												<input id="razao_social" name="razao_social" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->
+											</div>      
+											<div class="col-sm-2">
+												<label class="form-label" for="cnpj_edf">Número CNPJ</label> 
+												<input id="cnpj_edf" name="cnpj_edf" type="text" placeholder="Apenas números" class="form-control cnpj" maxlength="18">
+												<div class="invalid-feedback">
+													Preencha um CNPJ válido.
+												</div> 
+											</div>
+										</div>
+										
+										<!-- Logradouro/Nº -->
+										<div class="row">
+											<div class="col-sm-10">
+												<label class="form-label" for="logradouro">Logradouro Público</label>  
+												<input id="logradouro" name="logradouro" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+											<div class="col-sm-2">
+												<label class="form-label" for="numero">Número</label>  
+												<input id="numero" name="numero" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+										</div>
+										
+										<!-- Bairro, Município/UF -->
+										<div class="row">
+											<div class="col-sm-8">
+												<label class="form-label" for="bairro">Bairro</label>  
+												<input id="bairro" name="bairro" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span--> 
+											</div>      
+											<div class="col-sm-4">
+												<label class="form-label" for="cidade_uf">Município/UF</label> 
+												<input id="cidade_uf" name="cidade_uf" type="text" placeholder="Município/UF" class="form-control">
+												<!--span class="help-block">help</span--> 
+											</div>
+										</div>
+										
+										<!-- Complemento do endereço, CEP -->
+										<div class="row">
+											<div class="col-sm-10">
+												<label class="form-label" for="complemento">Complemento</label>
+												<input id="complemento" name="complemento" type="text" placeholder="Sem complemento" class="form-control" value="Sem complemento">
+												<!--span class="help-block">help</span-->  
+											</div>
+											<div class="col-sm-2">
+												<label class="form-label" for="cep">CEP</label>
+												<input id="cep" name="cep" type="text" placeholder="Apenas números" class="form-control cep" maxlength="9">
+												<div class="invalid-feedback">
+													Preencha um CEP válido.
+												</div>
+											</div>
+										</div>
+										
+										<!-- Proprietário -->
+										<div class="row">
+											<div class="col-sm-12">
+												<label class="form-label" for="proprietario">Proprietário</label>
+												<input id="proprietario" name="proprietario" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->
+											</div>
+										</div>
+
+										<!-- Dados do Proprietário -->
+										<div class="row">
+											<div class="col-sm-2">  
+												<label class="form-label" for="cpf_prop">CPF</label>
+												<input id="cpf_prop" name="cpf_prop" type="text" placeholder="Apenas números" class="form-control cpf" maxlength="14">
+												<div class="invalid-feedback">
+													Preencha um CPF válido.
+												</div>
+											</div>
+											<div class="col-sm-3">  
+												<label class="form-label" for="telefone_prop">Telefone</label>
+												<input id="telefone_prop" name="telefone_prop" type="text" placeholder="Apenas números" class="form-control phone" maxlength="15">
+												<div class="invalid-feedback">
+													Preencha um telefone válido.
+												</div>
+											</div>
+											<div class="col-sm-7">  
+												<label class="form-label" for="email_prop">e-mail</label>
+												<input id="email_prop" name="email_prop" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+										</div>
+
+										<!-- Responsável pelo Uso -->
+										<div class="row">
+											<div class="col-sm-9">
+												<label class="form-label" for="responsavel_uso">Responsável pelo Uso</label>
+												<input id="responsavel_uso" name="responsavel_uso" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->
+											</div>
+											<div class="col-sm-3">  
+												<label class="form-label" for="telefone_resp">Telefone</label>
+												<input id="telefone_resp" name="telefone_resp" type="text" placeholder="Apenas números" class="form-control phone" maxlength="15">
+												<div class="invalid-feedback">
+													Preencha um telefone válido.
+												</div> 
+											</div>
+										</div>
+
+										<!-- Responsável Técnico -->
+										<div class="row">
+											<div class="col-sm-9">
+												<label class="form-label" for="responsavel_tecnico">Responsável Técnico</label>
+												<input id="responsavel_tecnico" name="responsavel_tecnico" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->
+											</div>
+											<div class="col-sm-3">  
+												<label class="form-label" for="registro_conselho">Registro no Conselho</label>
+												<input id="registro_conselho" name="registro_conselho" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+										</div>
+
+										<!-- ART, Data de início, Data de término -->
+										<div class="row">
+											<div class="col-sm-6">  
+												<label class="form-label" for="email_resp">e-mail</label>
+												<input id="email_resp" name="email_resp" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+											<div class="col-sm-2">
+												<label class="form-label" for="numero_art">Número ART/RRT</label>
+												<input id="numero_art" name="numero_art" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->
+											</div>
+											<div class="col-sm-2">  
+												<label class="form-label" for="data_inicio">Data de Início</label>
+												<input id="data_inicio" name="data_inicio" type="date" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+											<div class="col-sm-2">  
+												<label class="form-label" for="data_termino">Data de Término</label>
+												<input id="data_termino" name="data_termino" type="date" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+										</div>
+										
+										<!-- Áreas, altura e núm. de pavimentos -->
+										<div class="row">
+											<div class="col-sm-3">
+												<label class="form-label" for="area_construida">Área Construída</label>
+												<div class="input-group mb-3">
+													<input id="area_construida" name="area_construida" class="form-control" placeholder="" type="text">
+													<span class="input-group-text">m²</span>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<label class="form-label" for="carga_incendio">Carga de Incêndio</label>
+												<div class="input-group mb-3">
+													<input id="carga_incendio" name="carga_incendio" class="form-control" placeholder="" type="text">
+													<span class="input-group-text">MJ/m²</span>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<label class="form-label" for="num_pavimentos">Número de Pavimentos</label>  
+												<input id="num_pavimentos" name="num_pavimentos" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+											<div class="col-sm-3">
+												<label class="form-label" for="altura">Altura</label>
+												<div class="input-group mb-3">
+													<input id="altura" name="altura" class="form-control" placeholder="" type="text">
+													<span class="input-group-text">m</span>
+												</div>
+											</div>
+										</div>
+										
+										<!-- Grupo/Dimensionamento do risco -->
+										<div class="row">
+											<div class="col-sm-8">
+												<label class="form-label" for="grupo_div">Grupo/Divisão</label>
+												<input class="form-control" list="datalistOptions" id="grupo_div" name="grupo_div" placeholder="Digite aqui para pesquisar..." title="Digite aqui para pesquisar...">
+												<datalist id="datalistOptions">
+													<option value="A (Residencial)/A2 - Habitação multifamiliar">A (Residencial)/A2 - Habitação multifamiliar</option>
+													<option value="B (Serviço de Hospedagem)/B1 - Hotel e assemelhados">B (Serviço de Hospedagem)/B1 - Hotel e assemelhados</option>
+													<option value="B (Serviço de Hospedagem)/B2 - Hotel residencial">B (Serviço de Hospedagem)/B2 - Hotel residencial</option>
+													<option value="C (Comercial)/C1 - Comércio com baixa carga de incêndio">C (Comercial)/C1 - Comércio com baixa carga de incêndio</option>
+													<option value="C (Comercial)/C2 - Comércio com média e alta carga de incêndio">C (Comercial)/C2 - Comércio com média e alta carga de incêndio</option>
+													<option value="C (Comercial)/C3 - Shopping centers">C (Comercial)/C3 - Shopping centers</option>
+													<option value="D (Serviço profissional)/D1 - Local para prestação de serviço profissional ou condução de negócios">D (Serviço profissional)/D1 - Local para prestação de serviço profissional ou condução de negócios</option>
+													<option value="D (Serviço profissional)/D2 - Agência bancária">D (Serviço profissional)/D2 - Agência bancária</option>
+													<option value="D (Serviço profissional)/D3 - Serviço de reparação (exceto os classificados em G-4)">D (Serviço profissional)/D3 - Serviço de reparação (exceto os classificados em G-4)</option>
+													<option value="D (Serviço profissional)/D4 - Laboratório">D (Serviço profissional)/D4 - Laboratório</option>
+													<option value="E (Educacional e cultura física)/E1 - Escola em geral">E (Educacional e cultura física)/E1 - Escola em geral</option>
+													<option value="E (Educacional e cultura física)/E2 - Escola especial">E (Educacional e cultura física)/E2 - Escola especial</option>
+													<option value="E (Educacional e cultura física)/E3 - Espaço para cultura física">E (Educacional e cultura física)/E3 - Espaço para cultura física</option>
+													<option value="E (Educacional e cultura física)/E4 - Centro de treinamento profissional">E (Educacional e cultura física)/E4 - Centro de treinamento profissional</option>
+													<option value="E (Educacional e cultura física)/E5 - Pré-escola">E (Educacional e cultura física)/E5 - Pré-escola</option>
+													<option value="E (Educacional e cultura física)/E6 - Escola para portadores de deficiências">E (Educacional e cultura física)/E6 - Escola para portadores de deficiências</option>
+													<option value="F (Local de Reunião de Público)/F1 - Local onde há objeto de valor inestimável">F (Local de Reunião de Público)/F1 - Local onde há objeto de valor inestimável</option>
+													<option value="F (Local de Reunião de Público)/F2 - Local religioso e velório">F (Local de Reunião de Público)/F2 - Local religioso e velório</option>
+													<option value="F (Local de Reunião de Público)/F3 - Centro esportivo e de exibição">F (Local de Reunião de Público)/F3 - Centro esportivo e de exibição</option>
+													<option value="F (Local de Reunião de Público)/F4 - Estação e terminal de passageiro">F (Local de Reunião de Público)/F4 - Estação e terminal de passageiro</option>
+													<option value="F (Local de Reunião de Público)/F5 - Arte cênica e auditório">F (Local de Reunião de Público)/F5 - Arte cênica e auditório</option>
+													<option value="F (Local de Reunião de Público)/F6 - Clubes sociais e salão de festa">F (Local de Reunião de Público)/F6 - Clubes sociais e salão de festa</option>
+													<option value="F (Local de Reunião de Público)/F7 - Instalação temporária">F (Local de Reunião de Público)/F7 - Instalação temporária</option>
+													<option value="F (Local de Reunião de Público)/F8 - Local para refeição">F (Local de Reunião de Público)/F8 - Local para refeição</option>
+													<option value="F (Local de Reunião de Público)/F9 - Recreação pública">F (Local de Reunião de Público)/F9 - Recreação pública</option>
+													<option value="F (Local de Reunião de Público)/F10 - Exposição de objetos ou animais">F (Local de Reunião de Público)/F10 - Exposição de objetos ou animais</option>
+													<option value="F (Local de Reunião de Público)/F11 - Boate">F (Local de Reunião de Público)/F11 - Boate</option>
+													<option value="G (Serviço automotivo e assemelhados)/G1 - Garagem sem acesso de público e sem abastecimento">G (Serviço automotivo e assemelhados)/G1 - Garagem sem acesso de público e sem abastecimento</option>
+													<option value="G (Serviço automotivo e assemelhados)/G2 - Garagem com acesso de público e sem abastecimento">G (Serviço automotivo e assemelhados)/G2 - Garagem com acesso de público e sem abastecimento</option>
+													<option value="G (Serviço automotivo e assemelhados)/G3 - Local dotado de abastecimento de combustível">G (Serviço automotivo e assemelhados)/G3 - Local dotado de abastecimento de combustível</option>
+													<option value="G (Serviço automotivo e assemelhados)/G4 - Serviço de conservação, manutenção e reparos">G (Serviço automotivo e assemelhados)/G4 - Serviço de conservação, manutenção e reparos</option>
+													<option value="G (Serviço automotivo e assemelhados)/G5 - Hangar">G (Serviço automotivo e assemelhados)/G5 - Hangar</option>
+													<option value="H (Serviço de saúde e institucional)/H1 - Hospital veterinário e assemelhados">H (Serviço de saúde e institucional)/H1 - Hospital veterinário e assemelhados</option>
+													<option value="H (Serviço de saúde e institucional)/H2 - Local onde pessoas requerem cuidados especiais por limitações físicas ou mentais">H (Serviço de saúde e institucional)/H2 - Local onde pessoas requerem cuidados especiais por limitações físicas ou mentais</option>
+													<option value="H (Serviço de saúde e institucional)/H3 - Hospital e assemelhado">H (Serviço de saúde e institucional)/H3 - Hospital e assemelhado</option>
+													<option value="H (Serviço de saúde e institucional)/H4 - Repartição pública, Edificações das forças armadas e policiais">H (Serviço de saúde e institucional)/H4 - Repartição pública, Edificações das forças armadas e policiais</option>
+													<option value="H (Serviço de saúde e institucional)/H5 - Local onde a liberdade das pessoas sofre restrições">H (Serviço de saúde e institucional)/H5 - Local onde a liberdade das pessoas sofre restrições</option>
+													<option value="H (Serviço de saúde e institucional)/H6 - Clínica e consultório médico e odontológico">H (Serviço de saúde e institucional)/H6 - Clínica e consultório médico e odontológico</option>
+													<option value="I (Indústria)/I1 - Indústria de material incombustível">I (Indústria)/I1 - Indústria de material incombustível</option>
+													<option value="I (Indústria)/I2 - Indústria com carga de incêndio até 300MJ/m²">I (Indústria)/I2 - Indústria com carga de incêndio até 300MJ/m²</option>
+													<option value="I (Indústria)/I3 - Indústria com carga de incêndio acima de 300MJ/m² até 1.200 MJ/m²">I (Indústria)/I3 - Indústria com carga de incêndio acima de 300MJ/m² até 1.200 MJ/m²</option>
+													<option value="J (Depósito)/J1 - Depósitos de material incombustível">J (Depósito)/J1 - Depósitos de material incombustível</option>
+													<option value="J (Depósito)/J2 - Depósitos com carga de incêndio até 300MJ/m²">J (Depósito)/J2 - Depósitos com carga de incêndio até 300MJ/m²</option>
+													<option value="J (Depósito)/J3 - Depósitos com carga de incêndio acima de 300MJ/m² até 1.200 MJ/m²">J (Depósito)/J3 - Depósitos com carga de incêndio acima de 300MJ/m² até 1.200 MJ/m²</option>
+													<option value="J (Depósito)/J4 - Depósitos com carga de incêndio superior a 1.200 MJ/m²">J (Depósito)/J4 - Depósitos com carga de incêndio superior a 1.200 MJ/m²</option>
+													<option value="K (Energia)/K1 - Central de transmissão e distribuição de energia">K (Energia)/K1 - Central de transmissão e distribuição de energia</option>
+													<option value="L (Explosivo)/L1 - Comércio">L (Explosivo)/L1 - Comércio</option>
+													<option value="L (Explosivo)/L2 - Indústria">L (Explosivo)/L2 - Indústria</option>
+													<option value="L (Explosivo)/L3 - Depósito">L (Explosivo)/L3 - Depósito</option>
+													<option value="M (Especial)/M1 - Túnel">M (Especial)/M1 - Túnel</option>
+													<option value="M (Especial)/M2 - Líquido ou gás inflamáveis ou combustíveis">M (Especial)/M2 - Líquido ou gás inflamáveis ou combustíveis</option>
+													<option value="M (Especial)/M3 - Central de comunicação">M (Especial)/M3 - Central de comunicação</option>
+													<option value="M (Especial)/M4 - Canteiro de obras">M (Especial)/M4 - Canteiro de obras</option>
+													<option value="M (Especial)/M5 - Silos">M (Especial)/M5 - Silos</option>
+													<option value="M (Especial)/M6 - Floresta nativa ou cultivada">M (Especial)/M6 - Floresta nativa ou cultivada</option>
+													<option value="M (Especial)/M7 - Pátio de contêineres">M (Especial)/M7 - Pátio de contêineres</option>
+												</datalist>
+												<!--span class="help-block">help</span-->  
+											</div>
+											<div class="col-sm-4">
+												<label class="form-label" for="risco">Risco</label>
+												<select class="form-select" id="risco" name="risco">
+													<option selected>-- Selecione --</option>
+													<option value="Risco Baixo">Risco Baixo</option>
+													<option value="Risco Médio">Risco Médio</option>
+													<option value="Risco Alto">Risco Alto</option>
+												</select>
+												<!--span class="help-block">help</span-->  
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Medidas de segurança -->
+								<div class="tab-pane" id="medidas" role="tabpanel">
+									<div class="pb-3 pt-3 container">
+										<!-- 2. Medidas de segurança - Checklist -->
+										<div class="row">
+											<b>
+												<em>Checklist</em>
+											</b>
+											<hr />
+										</div>
+										<div class="pb-3 row">	
+											<!-- LADO ESQUERDO -->
+											<div class="col-sm-6">
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value="Controle de Material de Acabamento" id="cmar" name="cmar">
+													<label class="form-check-label" for="cmar">
+														Controle de Material de Acabamento
+													</label>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value="Saídas de emergência" id="saidas" name="saidas">
+													<label class="form-check-label" for="saidas">
+														Saídas de emergência
+													</label>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value="Extintores" id="extintores" name="extintores">
+													<label class="form-check-label" for="extintores">
+														Extintores
+													</label>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value="Brigada de incêndio" id="brigada" name="brigada">
+													<label class="form-check-label" for="brigada">
+														Brigada de incêndio
+													</label>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value="Gerenciamento de risco de incêndio" id="ger_risco" name="ger_risco">
+													<label class="form-check-label" for="ger_risco">
+														Gerenciamento de risco de incêndio
+													</label>
+												</div>
+											</div> 
+											<!-- LADO DIREITO -->
+											<div class="col-sm-6">
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value="Iluminação de emergência" id="iluminacao" name="iluminacao">
+													<label class="form-check-label" for="iluminacao">
+														Iluminação de emergência
+													</label>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value="Sinalização de emergência" id="sinalizacao" name="sinalizacao">
+													<label class="form-check-label" for="sinalizacao">
+														Sinalização de emergência
+													</label>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value="Central de Gás" id="central_gas" name="central_gas">
+													<label class="form-check-label" for="central_gas">
+														Central de Gás
+													</label>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value="Acesso de viaturas" id="acesso_vtr" name="acesso_vtr">
+													<label class="form-check-label" for="acesso_vtr">
+														Acesso de viaturas
+													</label>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value="Outra: " id="outras_chk" name="outras_chk">
+													<label class="form-check-label" for="outras_chk">
+														 Outra: 
+													</label>
+													<input id="outras_input" name="outras_input" type="text" placeholder="" class="form-control">
+												</div>
+											</div>
+										</div>
+										<!-- 2.1 Extintores -->
+										<div class="row">
+											<b>Extintores</b>
+											<hr />
+										</div>
+										<div class="row">
+											<div class="col-sm-6">
+												<label class="form-label" for="quantidade_ext">Total de Extintores</label>
+												<input id="quantidade_ext" name="quantidade_ext" type="text" placeholder="Quantidade total de extintores" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+											<div class="col-sm-6">
+												<label class="form-label" for="distancia_extintor">Distância Máxima</label> 
+												<input id="distancia_extintor" name="distancia_extintor" type="text" placeholder="Distância máxima até um extintor" class="form-control">
+												<!--span class="help-block">help</span--> 
+											</div>
+										</div>
+										<div class="p-3 row">
+											<div class="d-grid gap-2 d-md-flex justify-content-md-center" id="extintoresButtons">
+												<button class="btn btn-success btn-m" id="addExtintor">
+													<i class="bi bi-journal-plus"> Adicionar extintor</i>
+												</button>
+												<button class="btn btn-danger btn-m" id="delExtintor">
+													<i class="bi bi-journal-minus"> Remover extintor</i>
+												</button>
+											</div>
+										</div>
+										<div class="row" id="extintoresInputs">
+											<!-- Local onde vão ser colocados os extintores -->
+										</div>
+										<div class="pb-3 row">
+											<div class="col-sm-12">
+												<label class="form-label" for="localizacao_ext">Localização dos Extintores</label> 
+												<textarea class="form-control" id="localizacao_ext" name="localizacao_ext" rows="5" maxlength="440" placeholder="Máximo de 440 caracteres."></textarea> 
+											</div>
+										</div>
+										<!-- 2.2 Saídas de emergência -->
+										<div class="row">
+											<b>Saídas de emergência</b>
+											<hr />
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<label class="form-label" for="largura_saida">Largura da Saída</label> 
+												<input id="largura_saida" name="largura_saida" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span--> 
+											</div>
+											<div class="col-sm-4">
+												<label class="form-label" for="largura_circ">Largura da Circulação</label> 
+												<input id="largura_circ" name="largura_circ" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+											<div class="col-sm-4">
+												<label class="form-label" for="largura_escada">Largura da Escada</label> 
+												<input id="largura_escada" name="largura_escada" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span--> 
+											</div>
+										</div>
+										<div class="pb-3 row">
+											<div class="col-sm-6">
+												<label class="form-label" for="capacidade">Capacidade de Público</label>
+												<input id="capacidade" name="capacidade" type="text" placeholder="Quantidade de pessoas" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+											<div class="col-sm-6">
+												<label class="form-label" for="distancia_saida">Distância Máxima</label> 
+												<input id="distancia_saida" name="distancia_saida" type="text" placeholder="Distância máxima até uma saída de emergência" class="form-control">
+												<!--span class="help-block">help</span--> 
+											</div>
+										</div>
+										<!-- 2.3 Iluminação de emergência -->
+										<div class="row">
+											<b>Iluminação de emergência</b>
+											<hr />
+										</div>
+										<div class="row">
+											<div class="col-sm-3">
+												<label class="form-label" for="alimentacao">Alimentação</label> 
+												<input id="alimentacao" name="alimentacao" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span--> 
+											</div>
+											<div class="col-sm-3">
+												<label class="form-label" for="autonomia">Autonomia</label> 
+												<input id="autonomia" name="autonomia" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+											<div class="col-sm-3">
+												<label class="form-label" for="tipo_lum">Tipo de Luminária</label> 
+												<input id="tipo_lum" name="tipo_lum" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->
+											</div>
+											<div class="col-sm-3">
+												<label class="form-label" for="quantidade_lum">Quantidade</label>
+												<input id="quantidade_lum" name="quantidade_lum" type="text" placeholder="" class="form-control">
+												<!--span class="help-block">help</span-->  
+											</div>
+										</div>
+										<div class="pb-3 row">
+											<div class="col-sm-12">
+												<label class="form-label" for="localizacao_lum">Localização das Luminárias</label> 
+												<textarea class="form-control" id="localizacao_lum" name="localizacao_lum" rows="5" maxlength="440" placeholder="Máximo de 440 caracteres."></textarea> 
+											</div>
+										</div>
+										<!-- 2.4 Sinalização de emergência -->
+										<!--div class="row">
+											<b>2.4 Sinalização de emergência</b>
+										</div>
+										<div class="pb-3 row">
+											Content
+										</div>
+										<hr /-->
+										<!-- 2.5 Central de gás -->
+										<div class="row">
+											<b>Central de gás</b>
+											<hr />
+										</div>
+										<div class="pb-3 row">
+											Content
+										</div>
+									</div>
+								</div>
+								<!-- 3. Descrição de atividades e informações -->
+								<div class="tab-pane" id="descricao_ativ" role="tabpanel">
+									<div class="pb-3 pt-3 container">
+										<div class="row g-3">
+											<div class="col-sm-12">
+												<label class="form-label justify-content-md-start" for="descricao_txt">
+													<b>3. Descrição de atividades e informações</b>
+												</label>
+												<textarea class="form-control" id="descricao_txt" name="descricao_txt" rows="5" maxlength="440" placeholder="Máximo de 440 caracteres."></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Botões do formulário -->
+							<div class="pb-3 pt-3 row">
+								<div class="col-sm-12">
+									<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+										<button type="submit" class="btn btn-success">Gerar PDF</button>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+					</div>
+				</div>
+			</form>
+		</div>
+		
+		<!-- Scripts-->
+		<!-- Bootstrap JS -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+		<!-- Auxiliar do formulário -->
+		<script src="/static/js/formHelper.js" type="text/javascript"></script>
+
+
+		<!--script type="text/javascript"></script-->
+	
+	</body>
+</html>
