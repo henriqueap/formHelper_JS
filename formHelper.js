@@ -7,10 +7,10 @@
 */
 
 // Including the brazilian form inputs classes
-document.write("<script src='/static/js/cepInput.js' type='text/javascript'></script>");
-document.write("<script src='/static/js/cnpjInput.js' type='text/javascript'></script>");
-document.write("<script src='/static/js/cpfInput.js' type='text/javascript'></script>");
-document.write("<script src='/static/js/phoneInput.js' type='text/javascript'></script>");
+document.write("<script src='/js/cepInput.js' type='text/javascript'></script>");
+document.write("<script src='/js/cnpjInput.js' type='text/javascript'></script>");
+document.write("<script src='/js/cpfInput.js' type='text/javascript'></script>");
+document.write("<script src='/js/phoneInput.js' type='text/javascript'></script>");
 
 // Add extintor button config
 document.getElementById("addExtintor").addEventListener('click', function(event) {
